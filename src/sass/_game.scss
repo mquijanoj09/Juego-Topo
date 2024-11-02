@@ -1,0 +1,210 @@
+// Existing game styles moved to a separate file
+.bright {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.918);
+  z-index: 999;
+  display: none;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.score {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 13em;
+  height: 2em;
+  background-color: rgba(0, 0, 0, 0.918);
+  padding-left: 0.4rem;
+  font-size: 0.9rem;
+  font-family: monospace;
+  margin: 2.5% auto;
+  color: rgb(157, 175, 56);
+  margin-bottom: 1% !important;
+}
+
+.score p {
+  font-size: 1.4rem;
+}
+
+.hearts {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3%;
+  margin: auto;
+}
+
+.hearts img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+}
+
+.character {
+  position: relative;
+  display: none;
+  z-index: 100 !important;
+  margin-bottom: 20% !important;
+  width: 80%;
+}
+
+.character img {
+  position: absolute;
+  top: 11% !important;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  z-index: 100 !important;
+  object-fit: cover;
+  width: 100%;
+  display: block;
+}
+
+.character p {
+  z-index: 800;
+  padding-bottom: 0.7rem !important;
+  width: 3rem !important;
+  text-align: center;
+  background-color: rgb(124, 81, 16) !important;
+  color: rgba(0, 0, 0, 0.918);
+  border-radius: 20%;
+  border: 1px solid black;
+  font-family: sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.grid-hole {
+  display: grid;
+  grid-template-columns: repeat(4, 15em);
+  grid-template-rows: repeat(1, 28em);
+  grid-gap: 2%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 3%;
+  margin-left: 2%;
+}
+
+.hole:nth-of-type(even) {
+  margin-top: 25%;
+}
+
+.hole {
+  cursor: pointer;
+  width: 11.5em;
+  height: 4.5em;
+  background-color: rgba(0, 0, 0, 0.918);
+  border-radius: 60%;
+  position: relative;
+  z-index: 0 !important;
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.918);
+    border-radius: 60%;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+    animation: pulse-dot 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite;
+  }
+}
+
+.end {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25%;
+  height: 10rem;
+  background-color: #ccc;
+  border-radius: 10px;
+  z-index: 1000;
+  display: none;
+  text-align: center;
+  padding: 2rem;
+
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #227922;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .grid-hole {
+    top: 47% !important;
+    left: 47%;
+    transform: translate(-45%, -30%);
+    grid-template-columns: repeat(2, 18em);
+    grid-template-rows: repeat(4, 12em);
+  }
+
+  .hole {
+    width: max(18vw, 150px);
+    height: 9.5em;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .grid-hole {
+    grid-template-columns: repeat(2, 14em);
+    grid-template-rows: repeat(4, 12em);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .grid-hole {
+    top: 35% !important;
+    grid-template-columns: repeat(1, 14em);
+    grid-template-rows: repeat(4, 7em);
+  }
+
+  .hole:nth-of-type(even) {
+    margin-top: 0;
+  }
+
+  .end {
+    width: 80%;
+    padding: 1rem;
+  }
+}

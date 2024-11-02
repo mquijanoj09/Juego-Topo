@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Play - Juego del Topo</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap"
+      rel="stylesheet"
+    />
+    <link href="sass/style.css" rel="stylesheet" />
+  </head>
+  <body class="game-page">
+    <div class="bright"></div>
+    <div class="info">
+      <div class="score">
+        <h2>Intentos:</h2>
+        <p class="tries">0</p>
+      </div>
+      <div class="hearts">
+        <h4 class="lifeAmount">5x</h4>
+        <img src="images/heartFull.png" />
+        <img src="images/heartFull.png" />
+        <img src="images/heartFull.png" />
+        <img src="images/heartFull.png" />
+        <img src="images/heartFull.png" />
+      </div>
+    </div>
+    <div class="end">
+      <h3>Juego terminado!</h3>
+      <h4>Resultado: <span>0</span></h4>
+      <button class="menu-btn">Back to Menu</button>
+    </div>
+    <div class="grid-hole">
+      <div class="hole e200">
+        <div class="character earn200">
+          <img src="images/character.png" />
+          <p class="earn">+ 200</p>
+        </div>
+      </div>
+      <div class="hole e200">
+        <div class="character earn200">
+          <img src="images/character.png" />
+          <p class="earn">+ 200</p>
+        </div>
+      </div>
+      <div class="hole e200">
+        <div class="character earn200">
+          <img src="images/character.png" />
+          <p class="earn">+ 200</p>
+        </div>
+      </div>
+      <div class="hole e100">
+        <div class="character earn100">
+          <img src="images/character.png" />
+          <p class="earn">+100</p>
+        </div>
+      </div>
+    </div>
+    <script src="js/game.js"></script>
+  </body>
+</html>
