@@ -15,12 +15,11 @@ let scoreHtml = document.querySelector(".end span");
 let finalScore = 0;
 
 let endBox = document.querySelector(".end");
-let btnEnd = document.querySelector(".end button");
+let btnEnd = document.getElementById("menu-btn");
+let btnAgain = document.getElementById("again-btn");
 
 let holeArray = Array.from(holes);
 let characterArray = Array.from(character);
-
-let menuButton = document.querySelector(".menu-btn");
 
 function initGame() {
   bright.style.display = "none";
@@ -111,6 +110,10 @@ holeArray.forEach((hole) => {
   });
 });
 
-menuButton.addEventListener("click", () => {
+btnAgain.addEventListener("click", () => {
+  restartGame();
+});
+
+btnEnd.addEventListener("click", () => {
   window.location.href = "menu.html";
 });
