@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Credits - Juego del Topo</title>
+    <title>Créditos - Juego del Topo</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Jersey+25&family=Lilita+One&display=swap"
       rel="stylesheet"
     />
     <link href="sass/style.css" rel="stylesheet" />
@@ -13,28 +13,72 @@
   <body class="credits-page">
     <div class="credits-screen">
       <div class="credits-content">
-        <h1>Credits</h1>
-        <div class="credit-section">
-          <h2>Development Team</h2>
-          <div class="team-member">
-            <img
-              src="images/character.png"
-              alt="Developer"
-              class="member-avatar"
-            />
-            <h3>Mquijanoj09</h3>
-            <p>Lead Developer & Designer</p>
+        <h1 class="credits-title">Créditos</h1>
+        <div class="credit-sections">
+          <div class="credit-section">
+            <div class="section-icon">👨‍💻</div>
+            <h2>Equipo de Desarrollo</h2>
+            <div class="team-member">
+              <div class="member-card">
+                <div class="member-avatar-container">
+                  <img
+                    src="images/character.png"
+                    alt="Desarrollador"
+                    class="member-avatar"
+                  />
+                  <div class="avatar-glow"></div>
+                </div>
+                <h3>Mquijanoj09</h3>
+                <p>Desarrollador Principal & Diseñador</p>
+                <div class="member-badges">
+                  <span class="badge">🎨 Diseño</span>
+                  <span class="badge">💻 Código</span>
+                  <span class="badge">🎮 Juego</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="credit-section">
+            <div class="section-icon">🌟</div>
+            <h2>Agradecimientos Especiales</h2>
+            <div class="thanks-container">
+              <p>¡A todos los jugadores que disfrutan golpeando topos!</p>
+              <div class="player-stats">
+                <div class="stat">
+                  <span class="stat-icon">🎯</span>
+                  <span class="stat-value">1000+</span>
+                  <span class="stat-label">Topos Golpeados</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-icon">⭐</span>
+                  <span class="stat-value">5.0</span>
+                  <span class="stat-label">Calificación</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="credit-section">
+            <div class="section-icon">📱</div>
+            <h2>Información del Juego</h2>
+            <div class="game-info">
+              <div class="info-item">
+                <span class="info-label">Versión</span>
+                <span class="info-value">1.0.0</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Fecha</span>
+                <span class="info-value">2024</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="credit-section">
-          <h2>Special Thanks</h2>
-          <p>To all the players who enjoy whacking moles!</p>
-        </div>
-        <div class="credit-section">
-          <h2>Version</h2>
-          <p>1.0.0</p>
-        </div>
-        <button class="back-btn">Back to Menu</button>
+
+        <button class="back-btn bounce-effect">
+          <span class="back-icon">🏠</span>
+          Volver al Menú
+        </button>
       </div>
     </div>
     <script src="js/credits.js"></script>

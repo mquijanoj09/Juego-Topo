@@ -1,19 +1,31 @@
-// Game state
+let startBox = document.querySelector(".start");
 let bright = document.querySelector(".bright");
+
 let holes = document.querySelectorAll(".hole");
 let character = document.querySelectorAll(".character");
 let tries = document.querySelector(".tries");
 let random;
+
 let hearts = document.querySelectorAll(".hearts img");
 let lifeAmount = document.querySelector(".lifeAmount");
 let totalOfLives = 5;
+
 let toEarn = document.querySelectorAll(".earn");
 let scoreHtml = document.querySelector(".end span");
 let finalScore = 0;
+
 let endBox = document.querySelector(".end");
+let btnEnd = document.querySelector(".end button");
 
 let holeArray = Array.from(holes);
 let characterArray = Array.from(character);
+
+let menuButton = document.querySelector(".menu-btn");
+
+function initGame() {
+  bright.style.display = "none";
+  startBox.style.display = "none";
+}
 
 function hideImage() {
   this.style.display = "none";
@@ -42,19 +54,19 @@ function setLives() {
   if (totalOfLives > 0) {
     totalOfLives -= 1;
     lifeAmount.innerText = totalOfLives;
-    hearts[totalOfLives].src = "/images/emptyheart.png";
+    hearts[totalOfLives].src = "images/emptyheart.png";
   }
 
   if (totalOfLives === 0) {
     bright.style.display = "block";
     endBox.style.display = "block";
     tries.innerHTML = 0;
+    score = 0;
+  }
 
-    // Update best score
-    const currentBest = localStorage.getItem("bestScore") || 0;
-    if (finalScore > currentBest) {
-      localStorage.setItem("bestScore", finalScore);
-    }
+  const currentBest = localStorage.getItem("bestScore") || 0;
+  if (finalScore > currentBest) {
+    localStorage.setItem("bestScore", finalScore);
   }
 }
 
@@ -78,6 +90,20 @@ function isCorrectHole(hole) {
   }
 }
 
+function restartGame() {
+  totalOfLives = 5;
+  lifeAmount.innerText = totalOfLives;
+  finalScore = 0;
+  bright.style.display = "none";
+  endBox.style.display = "none";
+  scoreHtml.innerHTML = 0;
+  hearts.forEach((heart) => {
+    heart.src = "images/heartFull.png";
+  });
+}
+
+startBox.addEventListener("click", () => initGame());
+
 holeArray.forEach((hole) => {
   hole.addEventListener("click", () => {
     clickMole();
@@ -85,6 +111,6 @@ holeArray.forEach((hole) => {
   });
 });
 
-document.querySelector(".menu-btn").addEventListener("click", () => {
+menuButton.addEventListener("click", () => {
   window.location.href = "menu.html";
 });
