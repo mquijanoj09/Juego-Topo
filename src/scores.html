@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puntuaciones - Juego del Topo</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+25&family=Lilita+One&display=swap"
+      rel="stylesheet"
+    />
+    <link href="sass/style.scss" rel="stylesheet" />
+  </head>
+  <body class="scores-page">
+    <div class="scores-screen">
+      <h1 class="scores-title">🏆 Top Puntuaciones</h1>
+
+      <div class="scores-table">
+        <div class="table-header">
+          <div class="header-cell">Posición</div>
+          <div class="header-cell">Puntuación</div>
+          <div class="header-cell">Fecha</div>
+        </div>
+        <div class="table-body">
+          <!-- Scores will be inserted here by JavaScript -->
+        </div>
+      </div>
+
+      <div class="scores-actions">
+        <button class="action-btn clear-btn">
+          <span class="btn-icon">🗑️</span>
+          Borrar Puntuaciones
+        </button>
+        <button class="action-btn back-btn">
+          <span class="btn-icon">🏠</span>
+          Volver al Menú
+        </button>
+      </div>
+    </div>
+    <script type="module" src="js/scores-page.js"></script>
+  </body>
+</html>

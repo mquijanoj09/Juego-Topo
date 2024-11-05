@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Jersey+25&family=Lilita+One&display=swap"
       rel="stylesheet"
     />
-    <link href="sass/style.css" rel="stylesheet" />
+    <link href="sass/style.scss" rel="stylesheet" />
   </head>
   <body class="menu-page">
     <div class="menu-screen">
@@ -18,14 +18,17 @@
         <p class="subtitle">¿Estás listo para la diversión?</p>
       </div>
       <div class="menu-buttons">
-        <button class="menu-btn best-score-btn glow-effect">
-          <div class="trophy-icon">🏆</div>
-          <span class="btn-text">Mejor Puntaje</span>
-          <span class="score-value">0</span>
-        </button>
         <button class="menu-btn play-btn pulse-effect">
           <div class="play-icon">🎮</div>
           <span>¡Jugar Ahora!</span>
+        </button>
+        <button class="menu-btn scores-btn glow-effect">
+          <div class="trophy-icon">🏆</div>
+          <span>Puntuaciones</span>
+        </button>
+        <button class="menu-btn settings-btn shine-effect">
+          <div class="settings-icon">⚙️</div>
+          <span>Ajustes</span>
         </button>
         <button class="menu-btn credits-btn shine-effect">
           <div class="info-icon">ℹ️</div>
@@ -37,6 +40,6 @@
         <div class="mole-peek"></div>
       </div>
     </div>
-    <script src="js/menu.js"></script>
+    <script type="module" src="js/menu.js"></script>
   </body>
 </html>

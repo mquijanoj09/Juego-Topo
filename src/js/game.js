@@ -1,19 +1,18 @@
+import { audioManager } from "./audio.js";
+import { scoreManager } from "./scores.js";
+
 let startBox = document.querySelector(".start");
 let bright = document.querySelector(".bright");
-
 let holes = document.querySelectorAll(".hole");
 let character = document.querySelectorAll(".character");
 let tries = document.querySelector(".tries");
 let random;
-
 let hearts = document.querySelectorAll(".hearts img");
 let lifeAmount = document.querySelector(".lifeAmount");
 let totalOfLives = 5;
-
 let toEarn = document.querySelectorAll(".earn");
 let scoreHtml = document.querySelector(".end span");
 let finalScore = 0;
-
 let endBox = document.querySelector(".end");
 let btnEnd = document.getElementById("menu-btn");
 let btnAgain = document.getElementById("again-btn");
@@ -24,6 +23,7 @@ let characterArray = Array.from(character);
 function initGame() {
   bright.style.display = "none";
   startBox.style.display = "none";
+  audioManager.playBgMusic();
 }
 
 function hideImage() {
@@ -42,11 +42,21 @@ function clickMole() {
       function hideImage() {
         img.style.display = "none";
       }
-      setTimeout(hideImage, 1100);
+      setTimeout(hideImage, getDifficultyTimeout());
     } else {
       img.style.display = "none";
     }
   });
+}
+
+function getDifficultyTimeout() {
+  const difficulty = localStorage.getItem("difficulty") || "medium";
+  const timeouts = {
+    easy: 1300,
+    medium: 1100,
+    hard: 900,
+  };
+  return timeouts[difficulty];
 }
 
 function setLives() {
@@ -54,18 +64,18 @@ function setLives() {
     totalOfLives -= 1;
     lifeAmount.innerText = totalOfLives;
     hearts[totalOfLives].src = "images/emptyheart.png";
+    audioManager.playSfx("miss");
+    if (localStorage.getItem("vibrationEnabled") !== "false") {
+      navigator.vibrate && navigator.vibrate(200);
+    }
   }
 
   if (totalOfLives === 0) {
     bright.style.display = "block";
     endBox.style.display = "block";
     tries.innerHTML = 0;
-    score = 0;
-  }
-
-  const currentBest = localStorage.getItem("bestScore") || 0;
-  if (finalScore > currentBest) {
-    localStorage.setItem("bestScore", finalScore);
+    scoreManager.addScore(finalScore);
+    audioManager.stopBgMusic();
   }
 }
 
@@ -78,8 +88,10 @@ function isCorrectHole(hole) {
     });
     if (hole.classList.contains("e100")) {
       finalScore += 100;
+      audioManager.playSfx("hit");
     } else if (hole.classList.contains("e200")) {
       finalScore += 200;
+      audioManager.playSfx("score");
     }
 
     scoreHtml.innerHTML = finalScore;
@@ -99,6 +111,7 @@ function restartGame() {
   hearts.forEach((heart) => {
     heart.src = "images/heartFull.png";
   });
+  audioManager.playBgMusic();
 }
 
 startBox.addEventListener("click", () => initGame());

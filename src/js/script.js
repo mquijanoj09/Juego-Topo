@@ -41,6 +41,7 @@ playBtn.addEventListener("click", () => {
 });
 
 creditsBtn.addEventListener("click", () => {
+  console.log("credits");
   menuScreen.style.display = "none";
   creditsScreen.style.display = "block";
 });
