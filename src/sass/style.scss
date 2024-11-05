@@ -735,6 +735,79 @@ button {
   }
 }
 
+// Credits page styles
+.credits-page {
+  .credits-screen {
+    width: 90%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .credits-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #ffd700;
+  }
+
+  .credits-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    .credit-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+    }
+
+    .action-btn {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      justify-content: center;
+      transition: transform 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: inherit;
+      color: white;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+
+      .btn-icon {
+        font-size: 1.4rem;
+      }
+
+      &.clear-btn {
+        background: linear-gradient(45deg, #f44336, #d32f2f);
+      }
+
+      &.back-btn {
+        background: linear-gradient(45deg, #2196f3, #1976d2);
+      }
+    }
+  }
+
+  .credits-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
 // Animations
 @keyframes wobble {
   0%,
