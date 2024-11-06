@@ -86,7 +86,7 @@ function setLives() {
   if (totalOfLives > 0) {
     totalOfLives -= 1;
     lifeAmount.innerText = totalOfLives;
-    hearts[totalOfLives].src = "/images/emptyheart.png";
+    hearts[totalOfLives].src = "./images/emptyheart.png";
   }
 
   if (totalOfLives === 0) {

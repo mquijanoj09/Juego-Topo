@@ -1,5 +1,7 @@
 import { audioManager } from "./audio.js";
 import { scoreManager } from "./scores.js";
+import emptyHeartImg from "../images/emptyheart.png";
+import fullHeartImg from "../images/heartFull.png";
 
 let startBox = document.querySelector(".start");
 let bright = document.querySelector(".bright");
@@ -16,6 +18,11 @@ let finalScore = 0;
 let endBox = document.querySelector(".end");
 let btnEnd = document.getElementById("menu-btn");
 let btnAgain = document.getElementById("again-btn");
+
+// Initialize heart images
+hearts.forEach((heart) => {
+  heart.src = fullHeartImg;
+});
 
 let holeArray = Array.from(holes);
 let characterArray = Array.from(character);
@@ -61,8 +68,8 @@ function getDifficultyTimeout() {
 function setLives() {
   if (totalOfLives > 0) {
     totalOfLives -= 1;
-    lifeAmount.innerText = totalOfLives;
-    hearts[totalOfLives].src = "images/emptyheart.png";
+    lifeAmount.innerText = totalOfLives + "x";
+    hearts[totalOfLives].src = emptyHeartImg;
     audioManager.playSfx("miss");
     if (localStorage.getItem("vibrationEnabled") !== "false") {
       navigator.vibrate && navigator.vibrate(200);
@@ -101,13 +108,13 @@ function isCorrectHole(hole) {
 
 function restartGame() {
   totalOfLives = 5;
-  lifeAmount.innerText = totalOfLives;
+  lifeAmount.innerText = totalOfLives + "x";
   finalScore = 0;
   bright.style.display = "none";
   endBox.style.display = "none";
   scoreHtml.innerHTML = 0;
   hearts.forEach((heart) => {
-    heart.src = "images/heartFull.png";
+    heart.src = fullHeartImg;
   });
 }
 
