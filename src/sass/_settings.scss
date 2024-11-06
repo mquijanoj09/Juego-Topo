@@ -1,0 +1,140 @@
+// Settings page styles
+.settings-page {
+  .settings-screen {
+    width: 90%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .settings-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #ffd700;
+  }
+
+  .settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+
+  .setting-label {
+    font-size: 1.2rem;
+  }
+
+  .toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+
+      &:checked + .slider {
+        background-color: #4caf50;
+      }
+
+      &:checked + .slider:before {
+        transform: translateX(26px);
+      }
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 34px;
+
+      &:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .setting-select {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+
+    option {
+      background: #1a1c2c;
+    }
+  }
+
+  .settings-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    .action-btn {
+      padding: 1rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: inherit;
+      color: white;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+
+      .btn-icon {
+        font-size: 1.4rem;
+      }
+
+      &.save-btn {
+        background: linear-gradient(45deg, #4caf50, #45a049);
+      }
+
+      &.back-btn {
+        background: linear-gradient(45deg, #2196f3, #1976d2);
+      }
+
+      &.exit-btn {
+        background: linear-gradient(45deg, #f44336, #d32f2f);
+      }
+    }
+  }
+}

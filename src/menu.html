@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menú - Juego del Topo</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jersey+25&family=Lilita+One&display=swap"
+      rel="stylesheet"
+    />
+    <link href="sass/style.scss" rel="stylesheet" />
+  </head>
+  <body class="menu-page">
+    <div class="menu-screen">
+      <div class="game-title">
+        <img src="images/character.png" alt="Logo" class="menu-logo wobble" />
+        <h1>¡Atrapa al Topo!</h1>
+        <p class="subtitle">¿Estás listo para la diversión?</p>
+      </div>
+      <div class="menu-buttons">
+        <button class="menu-btn play-btn pulse-effect">
+          <div class="play-icon">🎮</div>
+          <span>¡Jugar Ahora!</span>
+        </button>
+        <button class="menu-btn scores-btn glow-effect">
+          <div class="trophy-icon">🏆</div>
+          <span>Puntuaciones</span>
+        </button>
+        <button class="menu-btn settings-btn shine-effect">
+          <div class="settings-icon">⚙️</div>
+          <span>Ajustes</span>
+        </button>
+        <button class="menu-btn credits-btn shine-effect">
+          <div class="info-icon">ℹ️</div>
+          <span>Créditos</span>
+        </button>
+      </div>
+      <div class="decoration">
+        <div class="grass"></div>
+        <div class="mole-peek"></div>
+      </div>
+    </div>
+    <script type="module" src="js/menu.js"></script>
+  </body>
+</html>

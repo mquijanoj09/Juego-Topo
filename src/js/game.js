@@ -1,4 +1,6 @@
-// Game state
+import { audioManager } from "./audio.js";
+import { scoreManager } from "./scores.js";
+
 let startBox = document.querySelector(".start");
 let bright = document.querySelector(".bright");
 let holes = document.querySelectorAll(".hole");
@@ -12,44 +14,8 @@ let toEarn = document.querySelectorAll(".earn");
 let scoreHtml = document.querySelector(".end span");
 let finalScore = 0;
 let endBox = document.querySelector(".end");
-let btnEnd = document.querySelector(".end button");
-
-// New screens
-const loadingScreen = document.querySelector(".loading-screen");
-const menuScreen = document.querySelector(".menu-screen");
-const creditsScreen = document.querySelector(".credits-screen");
-const playBtn = document.querySelector(".play-btn");
-const creditsBtn = document.querySelector(".credits-btn");
-const backBtn = document.querySelector(".back-btn");
-const bestScoreDisplay = document.querySelector(".best-score");
-
-let bestScore = localStorage.getItem("bestScore") || 0;
-bestScoreDisplay.textContent = bestScore;
-
-// Loading screen handler
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    loadingScreen.style.display = "none";
-    menuScreen.style.display = "block";
-  }, 2000);
-});
-
-// Menu screen handlers
-playBtn.addEventListener("click", () => {
-  menuScreen.style.display = "none";
-  initGame();
-});
-
-creditsBtn.addEventListener("click", () => {
-  console.log("credits");
-  menuScreen.style.display = "none";
-  creditsScreen.style.display = "block";
-});
-
-backBtn.addEventListener("click", () => {
-  creditsScreen.style.display = "none";
-  menuScreen.style.display = "block";
-});
+let btnEnd = document.getElementById("menu-btn");
+let btnAgain = document.getElementById("again-btn");
 
 let holeArray = Array.from(holes);
 let characterArray = Array.from(character);
@@ -75,32 +41,39 @@ function clickMole() {
       function hideImage() {
         img.style.display = "none";
       }
-      setTimeout(hideImage, 1100);
+      setTimeout(hideImage, getDifficultyTimeout());
     } else {
       img.style.display = "none";
     }
   });
 }
 
+function getDifficultyTimeout() {
+  const difficulty = localStorage.getItem("difficulty") || "medium";
+  const timeouts = {
+    easy: 1300,
+    medium: 1100,
+    hard: 900,
+  };
+  return timeouts[difficulty];
+}
+
 function setLives() {
   if (totalOfLives > 0) {
     totalOfLives -= 1;
     lifeAmount.innerText = totalOfLives;
-    hearts[totalOfLives].src = "/images/emptyheart.png";
+    hearts[totalOfLives].src = "images/emptyheart.png";
+    audioManager.playSfx("miss");
+    if (localStorage.getItem("vibrationEnabled") !== "false") {
+      navigator.vibrate && navigator.vibrate(200);
+    }
   }
 
   if (totalOfLives === 0) {
     bright.style.display = "block";
     endBox.style.display = "block";
     tries.innerHTML = 0;
-
-    // Update best score
-    if (finalScore > bestScore) {
-      bestScore = finalScore;
-      localStorage.setItem("bestScore", bestScore);
-      bestScoreDisplay.textContent = bestScore;
-    }
-    score = 0;
+    scoreManager.addScore(finalScore);
   }
 }
 
@@ -113,8 +86,10 @@ function isCorrectHole(hole) {
     });
     if (hole.classList.contains("e100")) {
       finalScore += 100;
+      audioManager.playSfx("hit");
     } else if (hole.classList.contains("e200")) {
       finalScore += 200;
+      audioManager.playSfx("score");
     }
 
     scoreHtml.innerHTML = finalScore;
@@ -130,7 +105,6 @@ function restartGame() {
   finalScore = 0;
   bright.style.display = "none";
   endBox.style.display = "none";
-  menuScreen.style.display = "block";
   scoreHtml.innerHTML = 0;
   hearts.forEach((heart) => {
     heart.src = "images/heartFull.png";
@@ -146,6 +120,10 @@ holeArray.forEach((hole) => {
   });
 });
 
-btnEnd.addEventListener("click", () => {
+btnAgain.addEventListener("click", () => {
   restartGame();
+});
+
+btnEnd.addEventListener("click", () => {
+  window.location.href = "menu.html";
 });

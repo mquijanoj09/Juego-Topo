@@ -1,14 +1,4 @@
-body {
-  background-image: url("../images/grass.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-@media screen and (max-width: 1440px) {
-  body {
-    background-repeat: repeat !important;
-  }
-}
-
+// Game page styles
 .bright {
   position: absolute;
   top: 0;
@@ -103,6 +93,8 @@ body {
   justify-content: center;
   align-items: center;
   margin: auto;
+  position: absolute;
+  top: 50px;
 }
 
 .score {
@@ -396,4 +388,4 @@ button {
     width: 80%;
     padding: 5%;
   }
-} /*# sourceMappingURL=style.css.map */
+}

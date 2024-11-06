@@ -1,0 +1,89 @@
+// Menu page styles
+.menu-screen {
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+  .game-title {
+    margin-bottom: 3rem;
+
+    .menu-logo {
+      width: 180px;
+      height: 180px;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+      animation: wobble 2s ease-in-out infinite;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      margin: 0;
+      background: linear-gradient(45deg, #ffd700, #ffa500);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #b8c6dc;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    .menu-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2rem;
+      font-size: 1.3rem;
+      font-family: inherit;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: linear-gradient(45deg, #2b5876, #4e4376);
+      color: white;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+
+      div[class$="-icon"] {
+        font-size: 1.5rem;
+        margin-right: 0.8rem;
+      }
+
+      &.play-btn {
+        background: linear-gradient(45deg, #11998e, #38ef7d);
+        font-size: 1.5rem;
+        padding: 1.2rem 2.5rem;
+        animation: pulse 2s infinite;
+      }
+
+      &.scores-btn {
+        background: linear-gradient(45deg, #ffd700, #ffa500);
+        animation: glow 2s infinite;
+      }
+
+      &.settings-btn {
+        background: linear-gradient(45deg, #4e54c8, #8f94fb);
+      }
+
+      &.credits-btn {
+        background: linear-gradient(45deg, #2196f3, #1976d2);
+      }
+    }
+  }
+}

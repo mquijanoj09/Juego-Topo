@@ -1,0 +1,100 @@
+// Scores page styles
+.scores-page {
+  .scores-screen {
+    width: 90%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .scores-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #ffd700;
+  }
+
+  .scores-table {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+
+    .table-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      font-weight: bold;
+    }
+
+    .table-body {
+      .table-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &.top-1 {
+          background: rgba(255, 215, 0, 0.1);
+        }
+
+        &.top-2 {
+          background: rgba(192, 192, 192, 0.1);
+        }
+
+        &.top-3 {
+          background: rgba(205, 127, 50, 0.1);
+        }
+      }
+    }
+  }
+
+  .header-cell,
+  .table-cell {
+    text-align: center;
+  }
+
+  .scores-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    .action-btn {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: inherit;
+      color: white;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+
+      .btn-icon {
+        font-size: 1.4rem;
+      }
+
+      &.clear-btn {
+        background: linear-gradient(45deg, #f44336, #d32f2f);
+      }
+
+      &.back-btn {
+        background: linear-gradient(45deg, #2196f3, #1976d2);
+      }
+    }
+  }
+}
