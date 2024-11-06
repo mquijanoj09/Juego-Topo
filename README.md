@@ -1,141 +1,136 @@
-# Juego Topo (Whack-a-Mole Game)
+# Juego del Topo
 
-A fun and interactive Whack-a-Mole game built with modern web technologies. Test your reflexes by catching the moles as they pop up from their holes!
+Un juego divertido e interactivo donde debes atrapar topos que aparecen en sus madrigueras. ¡Pon a prueba tus reflejos!
 
-![Game Preview](src/images/character.png)
+![Vista Previa del Juego](src/images/character.png)
 
-## 🎮 Features
+## 🎮 Características
 
-- **Dynamic Gameplay**: Moles appear randomly in different holes
-- **Score System**: Earn different points based on hole types
-  - Regular holes: 100 points
-  - Special holes: 200 points
-- **Lives System**: Start with 5 lives, lose one for each miss
-- **Difficulty Levels**: Choose between Easy, Medium, and Hard
-- **Sound Effects**: Engaging audio feedback for hits and misses
-- **Vibration Feedback**: Optional device vibration on misses
-- **High Scores**: Local storage of top 10 scores
-- **Responsive Design**: Works on both desktop and mobile devices
+- **Jugabilidad Dinámica**: Los topos aparecen aleatoriamente en diferentes madrigueras
+- **Sistema de Puntuación**: Gana diferentes puntos según el tipo de madriguera
+  - Madrigueras normales: 100 puntos
+  - Madrigueras especiales: 200 puntos
+- **Sistema de Vidas**: Comienza con 5 vidas, pierde una por cada fallo
+- **Niveles de Dificultad**: Elige entre Fácil, Medio y Difícil
+- **Efectos de Sonido**: Retroalimentación auditiva para aciertos y fallos
+- **Vibración**: Vibración opcional del dispositivo en los fallos
+- **Puntuaciones Altas**: Almacenamiento local de las 10 mejores puntuaciones
+- **Diseño Responsivo**: Funciona tanto en escritorio como en dispositivos móviles
 
-## 🛠️ Technologies Used
+## 🛠️ Tecnologías Utilizadas
 
 - HTML5
 - SCSS/CSS3
 - JavaScript (ES6+)
-- Parcel (Bundler)
+- Parcel (Empaquetador)
 - Howler.js (Audio)
-- Capacitor (Mobile)
+- Capacitor (Móvil)
 
-## 🚀 Getting Started
+## 🚀 Comenzando
 
-1. Clone the repository:
-
+1. Clona el repositorio:
 ```bash
-git clone [repository-url]
+git clone [url-del-repositorio]
 ```
 
-2. Install dependencies:
-
+2. Instala las dependencias:
 ```bash
 npm install
 ```
 
-3. Start development server:
-
+3. Inicia el servidor de desarrollo:
 ```bash
 npm start
 ```
 
-4. Build for production:
-
+4. Construye para producción:
 ```bash
 npm run build
 ```
 
-## 📱 Mobile App Build
+## 📱 Compilación para Móviles
 
-To build for Android:
+Para compilar para Android:
 
 ```bash
 npm run setup
 ```
 
-This will:
+Esto realizará:
+1. Instalación de dependencias
+2. Construcción del proyecto
+3. Inicialización de Capacitor
+4. Adición de la plataforma Android
+5. Sincronización del proyecto
+6. Apertura de Android Studio
 
-1. Install dependencies
-2. Build the project
-3. Initialize Capacitor
-4. Add Android platform
-5. Sync the project
-6. Open Android Studio
+## 🎯 Controles del Juego
 
-## 🎯 Game Controls
+- Haz clic/toca las madrigueras cuando veas un topo
+- Las reacciones rápidas son clave para conseguir puntuaciones altas
+- Vigila tus vidas restantes
+- ¡Intenta superar tu mejor puntuación!
 
-- Click/tap on holes when you see a mole
-- Quick reactions are key to high scores
-- Watch your remaining lives
-- Try to beat your high score!
+## ⚙️ Configuración
 
-## ⚙️ Settings
+- **Música**: Activar/desactivar música de fondo
+- **Efectos de Sonido**: Activar/desactivar efectos del juego
+- **Dificultad**: Elige entre Fácil, Medio, Difícil
+- **Vibración**: Activar/desactivar vibración del dispositivo
 
-- **Music Toggle**: Enable/disable background music
-- **Sound Effects**: Toggle game sound effects
-- **Difficulty**: Choose between Easy, Medium, Hard
-- **Vibration**: Enable/disable device vibration
+## 📊 Sistema de Puntuación
 
-## 📊 Scoring System
+- Madrigueras normales (marrones): 100 puntos
+- Madrigueras especiales (verdes): 200 puntos
+- Sigue tus mejores puntuaciones en la tabla de clasificación
 
-- Regular holes (brown): 100 points
-- Special holes (green): 200 points
-- Track your high scores in the leaderboard
+## 🎨 Personalización
 
-## 🎨 Customization
+El juego utiliza SCSS para los estilos, facilitando la personalización:
 
-The game uses SCSS for styling, making it easy to customize:
+- `_base.scss`: Estilos base
+- `_game.scss`: Estilos específicos del juego
+- `_menu.scss`: Interfaz del menú
+- `_settings.scss`: Panel de configuración
+- `_scores.scss`: Estilos de la tabla de puntuaciones
 
-- `_base.scss`: Core styles
-- `_game.scss`: Game-specific styles
-- `_menu.scss`: Menu interface
-- `_settings.scss`: Settings panel
-- `_scores.scss`: Leaderboard styling
-
-## 🔧 Project Structure
+## 🔧 Estructura del Proyecto
 
 ```
 src/
-├── audio/          # Game sound effects
-├── images/         # Game assets
-├── js/             # JavaScript modules
-├── sass/           # SCSS style files
-└── index.html      # Entry point
+├── audio/          # Efectos de sonido
+├── images/         # Recursos gráficos
+├── js/             # Módulos JavaScript
+├── sass/           # Archivos de estilo SCSS
+└── index.html      # Punto de entrada
 ```
 
-## 🤝 Contributing
+## 🤝 Contribuir
 
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
+1. Haz un fork del repositorio
+2. Crea tu rama de características
+3. Haz commit de tus cambios
+4. Empuja a la rama
+5. Abre un Pull Request
 
-## 📝 License
+## 📝 Licencia
 
-This project is licensed under the ISC License.
+Este proyecto está licenciado bajo la Licencia ISC.
 
-## 👥 Credits
+## 👥 Créditos
 
-- Development: Miguel Quijano Jaramillo & Jhonatan Bosch
-- Version: 1.0.0
-- Year: 2024
+- Desarrollo: Miguel Quijano Jaramillo & Jhonatan Bosch
+- Versión: 1.0.0
+- Año: 2024
 
-## 🐛 Known Issues
+## 🐛 Problemas Conocidos
 
-- None currently reported
+- Ninguno reportado actualmente
 
-## 🔜 Future Enhancements
+## 🔜 Mejoras Futuras
 
-- Online multiplayer mode
-- Additional power-ups
-- More sound effects
-- Achievement system
-- Different themes
+- Modo multijugador en línea
+- Power-ups adicionales
+- Más efectos de sonido
+- Sistema de logros
+- Diferentes temas visuales
