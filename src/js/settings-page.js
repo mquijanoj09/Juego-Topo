@@ -32,11 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
     audioManager.isMuted = !musicToggle.checked;
     audioManager.updateMuteState();
 
-    // Play background music if unmuted
-    if (!audioManager.isMuted) {
-      audioManager.playBgMusic();
-    }
-
     alert("¡Configuración guardada!");
   });
 

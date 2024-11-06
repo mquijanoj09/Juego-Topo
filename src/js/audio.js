@@ -1,41 +1,27 @@
 import { Howl } from "howler";
+import hitSound from "../audio/hit.mp3";
+import missSound from "../audio/miss.mp3";
+import scoreSound from "../audio/score.mp3";
 
 class AudioManager {
   constructor() {
-    this.bgMusic = new Howl({
-      src: ["audio/background.mp3"],
-      loop: true,
-      volume: 0.5,
-      autoplay: false,
-    });
-
     this.sfx = {
       hit: new Howl({
-        src: ["audio/hit.mp3"],
+        src: [hitSound],
         volume: 0.6,
       }),
       miss: new Howl({
-        src: ["audio/miss.mp3"],
+        src: [missSound],
         volume: 0.6,
       }),
       score: new Howl({
-        src: ["audio/score.mp3"],
+        src: [scoreSound],
         volume: 0.6,
       }),
     };
 
     this.isMuted = localStorage.getItem("isMuted") === "true";
     this.updateMuteState();
-  }
-
-  playBgMusic() {
-    if (!this.isMuted && !this.bgMusic.playing()) {
-      this.bgMusic.play();
-    }
-  }
-
-  stopBgMusic() {
-    this.bgMusic.stop();
   }
 
   playSfx(sound) {
@@ -52,13 +38,12 @@ class AudioManager {
 
   updateMuteState() {
     if (this.isMuted) {
-      this.bgMusic.mute(true);
       Object.values(this.sfx).forEach((sound) => sound.mute(true));
     } else {
-      this.bgMusic.mute(false);
       Object.values(this.sfx).forEach((sound) => sound.mute(false));
     }
   }
 }
 
+// Create a single instance that will be shared across all pages
 export const audioManager = new AudioManager();

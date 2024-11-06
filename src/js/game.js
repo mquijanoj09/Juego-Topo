@@ -23,7 +23,6 @@ let characterArray = Array.from(character);
 function initGame() {
   bright.style.display = "none";
   startBox.style.display = "none";
-  audioManager.playBgMusic();
 }
 
 function hideImage() {
@@ -75,7 +74,6 @@ function setLives() {
     endBox.style.display = "block";
     tries.innerHTML = 0;
     scoreManager.addScore(finalScore);
-    audioManager.stopBgMusic();
   }
 }
 
@@ -111,7 +109,6 @@ function restartGame() {
   hearts.forEach((heart) => {
     heart.src = "images/heartFull.png";
   });
-  audioManager.playBgMusic();
 }
 
 startBox.addEventListener("click", () => initGame());

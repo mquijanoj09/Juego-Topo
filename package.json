@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "^6.1.2",
+    "@parcel/transformer-raw": "^2.12.0",
     "@parcel/transformer-sass": "^2.12.0",
     "parcel": "^2.12.0"
   }

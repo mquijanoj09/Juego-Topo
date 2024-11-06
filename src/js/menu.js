@@ -1,8 +1,4 @@
-import { audioManager } from "./audio.js";
-
 document.addEventListener("DOMContentLoaded", () => {
-  audioManager.playBgMusic();
-
   document.querySelector(".play-btn").addEventListener("click", () => {
     window.location.href = "game.html";
   });
